@@ -1,9 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>calculadora</title>
+  <title>Calculadora</title>
 </head>
+<body>
+
+  <input type="text" id="pantalla" readonly>
+
+  <br><br>
+
+  <!-- Botones números -->
+  <button onclick="presionar('1')">1</button>
+  <button onclick="presionar('2')">2</button>
+  <button onclick="presionar('3')">3</button>
+  <button onclick="presionar('4')">4</button>
+  <button onclick="presionar('5')">5</button>
+  <button onclick="presionar('6')">6</button>
+  <button onclick="presionar('7')">7</button>
+  <button onclick="presionar('8')">8</button>
+  <button onclick="presionar('9')">9</button>
+  <button onclick="presionar('0')">0</button>
+
+  <button onclick="presionar('+')">+</button>
+  <button onclick="presionar('-')">-</button>
+  <button onclick="presionar('*')">x</button>  <!-- Para multiplicar en JS se usa * -->
+  <button onclick="presionar('/')">:</button>  <!-- Para dividir se usa / -->
+
+  <button onclick="calcular()">=</button>
+  <button onclick="borrar()">C</button>
+
+  <script>
+    function presionar(valor) {
+      document.getElementById("pantalla").value += valor;
+    }
+
+    function calcular() {
+      // eval interpreta la expresión matemática escrita en la pantalla
+      let resultado = eval(document.getElementById("pantalla").value);
+      document.getElementById("pantalla").value = resultado;
+    }
+
+    function borrar() {
+      document.getElementById("pantalla").value = "";
+    }
+  </script>
+
 </body>
-  
 </html>
-</body>
+
